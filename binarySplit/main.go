@@ -21,7 +21,7 @@ func binarySplit(src []byte) []int {
 	for i := 0; i < resultLen; i++ {
 		offset := i * 4
 
-		log.Printf("offset is %d", offset)
+		// log.Printf("offset is %d", offset)
 
 		b := src[offset : offset+4]
 

@@ -10,25 +10,12 @@ const (
 	ModeExclusive             // l: exclusive use
 	ModeNamedPipe             // T: temporary file; Plan 9 only
 	ModeSymlink               // L: symbolic link
-
-	// Mask for the type bits. For regular files, none will be set.
-
-	CForWB           = 1 << iota // for wb co-worker
-	CIsMulti                     // a reusable coupon or not
-	CAllowIcon                   // show a icon in the directory
-	CIsMultiOneOrder             // the coupon can be applied by any client, but only once
-	CIsMinSumPerItem             // the coupon for one position in bucket or for all bucket
-	CInCatalog                   // display the coupon in the directory (including Auto apply)
-	CInOffer                     // display the coupon in the gooditem card
-	CAutoApply                   // automatic application in the basket
-
-	CIsOneOrderExist // the order with this coupon already exist. excessive field
 )
 
 func main() {
-	var Flags uint32 = CIsMulti | CInCatalog | CInOffer
+	var Flags uint32 = ModeDir | ModeDir | ModeSymlink
 
-	log.Printf("%b", Flags)
+	log.Printf("%d", Flags)
 
 	log.Printf("%b", ModeDir)
 	log.Printf("%b", ModeAppend)
@@ -37,7 +24,7 @@ func main() {
 	log.Printf("%b", ModeSymlink)
 
 	log.Printf("%t", Flags&ModeDir > 0)
-	log.Printf("%t", Flags&ModeAppend > 0)
+	log.Printf("%t", Flags&ModeDir > 0)
 	log.Printf("%t", Flags&ModeExclusive > 0)
 	log.Printf("%t", Flags&ModeNamedPipe > 0)
 	log.Printf("%t", Flags&ModeSymlink > 0)
