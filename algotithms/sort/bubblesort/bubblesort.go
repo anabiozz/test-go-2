@@ -1,9 +1,5 @@
 package bubblesort
 
-import (
-	"fmt"
-)
-
 func BubbleSort(a []int) []int {
 	var (
 		n      = len(a)
@@ -12,7 +8,6 @@ func BubbleSort(a []int) []int {
 	for !sorted {
 		swapped := false
 		for i := 0; i < n-1; i++ {
-			fmt.Println(a[i])
 			if a[i] > a[i+1] {
 				a[i+1], a[i] = a[i], a[i+1]
 				swapped = true
