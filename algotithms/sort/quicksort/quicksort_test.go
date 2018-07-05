@@ -6,8 +6,14 @@ import (
 )
 
 func BenchmarkQuickSort(b *testing.B) {
-	slice := utils.GenerateSlice(999999)
 	for n := 0; n < b.N; n++ {
-		QuickSort(slice)
+		QuickSort(utils.GenerateSlice(1000))
+	}
+}
+
+func TestQuickSort(t *testing.T) {
+	sorted := QuickSort(utils.GenerateSlice(1000))
+	if len(sorted) != 1000 {
+		t.Error("wrong")
 	}
 }
